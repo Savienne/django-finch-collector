@@ -16,7 +16,7 @@
   type="text/css" 
   href="{% static 'css/finches/finch-detail.css' %}"
 />
-<script defer src="{% static 'js/cat-detail.js' %}"></script>
+<script defer src="{% static 'js/finch-detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -35,7 +35,7 @@
     {% else %}
       <h2>A {{ finch.breed }} kitten.</h2>
     {% endif %}
-    <p>{{ cat.description }}</p>
+    <p>{{ finch.description }}</p>
     <div class="cat-actions">
       <a href="{% url 'finches_update' finch.id %}" class="btn warn">Edit</a>
       <a href="{% url 'finches_delete' finch.id %}" class="btn danger">Delete</a>
