@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Finch
+from .forms import FeedingForm
 
 # Create your views here.
 def home(request):
@@ -16,6 +17,16 @@ def finches_index(request):
 def finches_detail(request, finch_id):
   finch = Finch.objects.get(id=finch_id)
   return render(request, 'finches/detail.html', { 'finch': finch})
+
+# def cats_detail(request, cat_id):
+#   cat = Cat.objects.get(id=cat_id)
+#   # instantiate FeedingForm to be rendered in the template
+#   feeding_form = FeedingForm()
+#   return render(request, 'cats/detail.html', {
+#     # include the cat and feeding_form in the context
+#     'cat': cat, 'feeding_form': feeding_form
+#   })
+
 
 class FinchCreate(CreateView):
   model = Finch
